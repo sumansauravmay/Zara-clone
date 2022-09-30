@@ -24,14 +24,15 @@ function Login(){
 const handleLogin=()=>{
     return axios({
         method:"POST",
-          url:"https://infinite-brushlands-51927.herokuapp.com/api/login",
-        //  url:"https://reqres.in/api/login",
+          // url:"https://infinite-brushlands-51927.herokuapp.com/api/login",
+         url:"https://reqres.in/api/login",
         data:getData
     }).then((res)=>{
 console.log(res)
 setToken(Date.now())
 alert("Login successfull")
 setStatus(true)
+
     })
     .catch(()=>{
         setStatus(false)
@@ -50,6 +51,7 @@ if(status===true)
 <Navbar/>
 <br/>
 <br/>
+
 <Grid pos="absolute" templateColumns='repeat(5, 1fr)' gap={10} m={"10"}>
 
   <GridItem colSpan={2} h='10'>
