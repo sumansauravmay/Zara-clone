@@ -2,8 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import {Flex,Box,Heading,Spacer,ButtonGroup,Button,Input,
     Image,Drawer,DrawerOverlay,DrawerContent,DrawerBody,useDisclosure,
-    
-    } from "@chakra-ui/react";
+     } from "@chakra-ui/react";
     
 
 function Navbar(){
@@ -60,12 +59,6 @@ return (
       </Drawer>
 
 
-
-      {/* <Box p='2'>
-  <Image bg="transparent"
-   boxSize="50px" 
-   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiGLIIiM_ak3hj9E6EgpNN28bc_ddyQFhd4Q&usqp=CAU" alt="three_dot"/>
-    </Box> */}
     <Box ml="50px">
     <Heading mt="5px" color="white" size='2xl'>Zara</Heading>
     </Box>

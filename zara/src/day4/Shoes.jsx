@@ -1,16 +1,16 @@
 import React from "react";
 import axios from "axios";
-// import {Container, VStack,Image,Box,Text,Button} from "@chakra-ui/react";
 import Navbar from "../day2/Navbar";
 import Footer from "../day2/Footer";
 import {Container, VStack,Image,Box,Text,Button,
-    Flex,ButtonGroup} from "@chakra-ui/react";
-    import {Link} from "react-router-dom";
+   } from "@chakra-ui/react";
+    
 
 function Shoes(){
     const [data,setData]=React.useState([]);
 
     React.useEffect(()=>{
+       
         return axios.get("https://infinite-brushlands-51927.herokuapp.com/api/ShoesData")
         .then((res)=>setData(res.data))
     },[])
@@ -40,19 +40,6 @@ function Shoes(){
 }
             </Container>
 
-            <Flex mt="20px" ml="200px" minWidth='max-content' alignItems='center' gap='2'>
-  <ButtonGroup gap='2' position="absolute">
-    <Link to="/collection">NEW</Link>
-    <Link to="/men">THE JEANS REDESIGN X ZARA</Link>
-    <Link to="/women">Y2 | METAVERSE</Link>
-    <Link to="/women">BEST SELLERS</Link>
-    <Link to="/collection">COLLECTION</Link>
-    <Link to="/shoes">BASICS</Link>
-    
-    <Link to="/shoes">SHOES</Link>
-    
-  </ButtonGroup>
-</Flex>
 
 
             <Footer/>
