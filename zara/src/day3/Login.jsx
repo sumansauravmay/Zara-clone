@@ -13,8 +13,7 @@ function Login(){
    const [email,setEmail]=React.useState("");
    const [password,setPassword]=React.useState("");
   const [status,setStatus]=React.useState(false);
-  const [token,setToken]=React.useState("")
-
+ 
    const getData={
     email:email,
     password:password
@@ -23,26 +22,41 @@ function Login(){
 
 const handleLogin=()=>{
     return axios({
-        method:"POST",
+        method:"GET",
           // url:"https://infinite-brushlands-51927.herokuapp.com/api/login",
-         url:"https://reqres.in/api/login",
+        //  url:"https://reqres.in/api/login",
+        url:"https://infinite-brushlands-51927.herokuapp.com/api/Register",
         data:getData
     }).then((res)=>{
-console.log(res)
-setToken(Date.now())
-alert("Login successfull")
-setStatus(true)
+     checkcredentials(res.data)
 
-    })
-    .catch(()=>{
-        setStatus(false)
-        console.log("something went wrong")
-    })
+})
+// setToken(Date.now())
+// alert("Login successfull")
+    // })
+    // .catch(()=>{
+    //     setStatus(false)
+    //     console.log("something went wrong")
+    // })
 }
-
+const checkcredentials=(data)=>{
+  let filtered=data.filter((el)=>{
+    return el.email===email && el.password===password
+  })
+  return finalcheck(filtered)
+}
+ 
+const finalcheck=(filtered)=>{
+  if(filtered.length>0){
+  alert("login successfull")
+ setStatus(true)
+   } else{
+  alert("login failed")
+   }
+}
 if(status===true)
    {
-   return <Navigate to="/"/>
+    return <Navigate to="/"/>
    }
 
 
@@ -56,7 +70,7 @@ if(status===true)
 
   <GridItem colSpan={2} h='10'>
   <Heading>LOG IN</Heading>
-    <Input m={5} type="text"
+    <Input m={5} type="text" 
     onChange={(e)=>setEmail(e.target.value)}
      placeholder="E-MAIL" value={email}/>
 

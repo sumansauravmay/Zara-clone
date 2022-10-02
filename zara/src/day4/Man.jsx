@@ -3,7 +3,7 @@ import axios from "axios";
  import Navbar from "../day2/Navbar";
 import Footer from "../day2/Footer";
 import {Container, VStack,Image,Box,Text,Button,} from "@chakra-ui/react";
-   
+   import {Link} from "react-router-dom"
 
    
 
@@ -35,9 +35,12 @@ function Man(){
             <Box mt={10}>
                <Text>{item.price}</Text>
             </Box>
+            <Link to={`/men/${item.id}`}>
             <Box mt={10}>
                <Button bg={"black"} color={"white"}>Add To Cart</Button>
             </Box>
+            </Link>
+            
         </VStack>
     ))
 }
